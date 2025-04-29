@@ -270,7 +270,6 @@ p {
 }
 
 #projects .section-content li:before {
-  /*content: '✔️';*/
   position: absolute;
   left: 0;
   font-size: 1.2rem;
@@ -308,12 +307,179 @@ footer {
   font-weight: bold;
 }
 
-/* Prevent screenshots and copying content */
-@media print {
-  body {
-      visibility: hidden;
-  }
-  .no-print {
-      visibility: visible;
-  }
+/*
+.text-changer{
+  height: 40px;
+  padding: 10px;
+  border-radius: 8px;
+  display: flex;
+  color: #7c7c7c;
+  font-family: "Poppins" , sans-serif;
+  font-weight: 500;
+  font-size: 25px;
+  box-sizing: content-box;
 }
+.intro-text{
+  margin-top: -2px;
+}
+.roles-container{
+  overflow: hidden;
+  position: relative;
+}
+.role{
+  display: block;
+  height: 100%;
+  padding-left: 6px;
+  color: #956afa;
+  animation: role-change 4s infinite;
+}
+@keyframes role-change {
+  10%{
+    transform: translateY(-102%);
+  }
+  25%{
+    transform: translateY(-100%);
+  }
+  35%{
+    transform: translateY(-202%);
+  }
+  50%{
+    transform: translateY(-200%);
+  }
+  60%{
+    transform: translateY(-302%);
+  }
+  75%{
+    transform: translateY(-300%);
+  }
+  85%{
+    transform: translateY(-402%);
+  }
+  100%{
+    transform: translateY(-400%);
+  }
+  
+}
+*/
+
+/* Mobile Navigation */
+.mobile-nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1024px) {
+    .intro img {
+        width: 400px;
+        height: 400px;
+        transform: translateX(0);
+        margin-right: 20px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .mobile-nav-toggle {
+        display: block;
+    }
+
+    nav ul {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #5a5c60;
+        padding: 1rem;
+    }
+
+    nav ul.active {
+        display: block;
+    }
+
+    nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
+
+    .intro {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .intro .left,
+    .intro .right {
+        flex: none;
+        width: 100%;
+    }
+
+    .intro img {
+        width: 300px;
+        height: 300px;
+        margin: 0 auto 2rem;
+    }
+
+    .certificates-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .intro img {
+        width: 250px;
+        height: 250px;
+    }
+
+    .certificates-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section {
+        padding: 1rem;
+    }
+
+    .section-content {
+        padding: 1rem;
+    }
+
+    form input,
+    form textarea,
+    form button {
+        padding: 0.6rem;
+    }
+}
+
+/* Fix for social media icons */
+center img {
+    transition: transform 0.3s;
+}
+
+center img:hover {
+    transform: scale(1.2);
+}
+
+/* Improve button responsiveness */
+.btn {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: all 0.3s;
+    white-space: nowrap;
+}
+
+.btn-secondary {
+    background: #ff6347;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background: #e55347;
+    transform: translateY(-2px);
+}
+

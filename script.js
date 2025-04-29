@@ -5,14 +5,12 @@ function showGreeting() {
   document.getElementById("greeting-message").innerText = greeting + " Welcome to my portfolio!";
 }
 showGreeting();
-
-// Typing Effect for Roles (only for the role part)
 const roles = ["Software Developer", "Web Developer", "Front End Developer"];
 let roleIndex = 0;
 let charIndex = 0;
-const typingSpeed = 100; // Typing speed in milliseconds
-const erasingSpeed = 50; // Erasing speed in milliseconds
-const delayBetweenRoles = 1500; // Delay between roles in milliseconds
+const typingSpeed = 100; 
+const erasingSpeed = 50; 
+const delayBetweenRoles = 1500; 
 const roleElement = document.getElementById("dynamic-role");
 
 function typeRole() {
@@ -31,18 +29,40 @@ function eraseRole() {
       charIndex--;
       setTimeout(eraseRole, erasingSpeed);
   } else {
-      roleIndex = (roleIndex + 1) % roles.length; // Move to the next role
+      roleIndex = (roleIndex + 1) % roles.length; 
       setTimeout(typeRole, typingSpeed);
   }
 }
-
-// Start the typing effect for the role
 typeRole();
-
 // Form Submission
 document.getElementById("contact-form").addEventListener("submit", function(event) {
   event.preventDefault();
   alert("Thank you for reaching out! Your message has been received.");
   this.reset();
+});
+
+// Mobile Navigation Toggle
+document.addEventListener('DOMContentLoaded', function() {
+    const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+    const navMenu = document.querySelector('nav ul');
+
+    mobileNavToggle.addEventListener('click', function() {
+        navMenu.classList.toggle('active');
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(event) {
+        if (!event.target.closest('nav')) {
+            navMenu.classList.remove('active');
+        }
+    });
+
+    // Close mobile menu when clicking on a link
+    const navLinks = document.querySelectorAll('nav ul li a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+        });
+    });
 });
 
